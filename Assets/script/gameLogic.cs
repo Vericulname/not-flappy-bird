@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -5,7 +6,7 @@ using UnityEngine.UI;
 public class gameLogic : MonoBehaviour
 {
     public int score;
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
     public GameObject gameOverPanel;
     [ContextMenu("Add Score")]
 
