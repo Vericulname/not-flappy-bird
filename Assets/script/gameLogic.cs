@@ -26,4 +26,15 @@ public class gameLogic : MonoBehaviour
         Debug.Log("Game Over");
         gameOverPanel.SetActive(true);
     }
+
+    // public void UseLaser()
+    // {
+    //     Debug.Log("Use Laser");
+    //     // Implement laser functionality here
+    // }
+    // public void UseShield()
+    // {
+    //     Debug.Log("Use Shield");
+    //     // Implement shield functionality here
+    // }
 }

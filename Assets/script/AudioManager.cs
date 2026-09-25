@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     private bool isMusicOn = true;
     private bool isSFXOn = true;
 
-    [ContextMenu("Toggle Music")]
+
     public void ToggleMusic()
     {
 
@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    [ContextMenu("Toggle SFX")]
+
     public void ToggleSFX()
     {
         isSFXOn = !isSFXOn;

@@ -3,11 +3,13 @@ using UnityEngine;
 public class MiddleTrigger : MonoBehaviour
 {
     public gameLogic gameLogic;
-    private int playerLayer;
+    private int playerLayer = 3;
     void Start()
+
     {
         gameLogic = GameObject.FindGameObjectWithTag("Logic").GetComponent<gameLogic>();
-        playerLayer = LayerMask.NameToLayer("Player");
+
+
     }
 
 
@@ -17,8 +19,9 @@ public class MiddleTrigger : MonoBehaviour
         if (collision.gameObject.layer == playerLayer)
         {
             Debug.Log("Middle Trigger");
+            gameLogic.AddScore(1);
         }
-        gameLogic.AddScore(1);
+
     }
 }
 

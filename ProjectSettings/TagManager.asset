@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Logic
   - AudioManager
+  - obstacle
+  - shield
+  - laser
   layers:
   - Default
   - TransparentFX
@@ -13,7 +16,7 @@ TagManager:
   - player
   - Water
   - UI
-  - 
+  - obstacle
   - 
   - 
   - 

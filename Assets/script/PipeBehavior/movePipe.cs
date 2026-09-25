@@ -18,7 +18,7 @@ public class movePipe : MonoBehaviour
         if (transform.position.x < destroyX)
         {
             Destroy(gameObject);
-            Debug.Log("destroyed");
+            // Debug.Log("destroyed");
         }
     }
 }
