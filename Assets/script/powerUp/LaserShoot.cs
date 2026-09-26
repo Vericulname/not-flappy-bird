@@ -14,7 +14,7 @@ public class LaserShoot : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             Destroy(collision.gameObject);
-            Debug.Log("Obstacle Destroyed");
+            // Debug.Log("Obstacle Destroyed");
             gameLogic.AddScore(1);
         }
         // Debug.Log("Laser Hit: " + collision.gameObject.name);

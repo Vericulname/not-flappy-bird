@@ -82,7 +82,7 @@ public class playerScript : MonoBehaviour
 
         }
 
-        if (gameObject.transform.position.y == -4.7f || gameObject.transform.position.y == 4.7f)
+        if (gameObject.transform.position.y <= -4.7f || gameObject.transform.position.y > 4.7f)
         {
             gameLogic.GameOver();
         }

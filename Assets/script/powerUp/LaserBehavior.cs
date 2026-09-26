@@ -17,7 +17,7 @@ public class LaserBehavior : MonoBehaviour
         {
             player.GetComponent<playerScript>().isLaserActive = true;
             Destroy(gameObject);
-            Debug.Log("Laser Activated");
+            // Debug.Log("Laser Activated");
         }
     }
 }

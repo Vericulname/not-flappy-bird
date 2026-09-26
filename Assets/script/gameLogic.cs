@@ -23,7 +23,7 @@ public class gameLogic : MonoBehaviour
     }
     public void GameOver()
     {
-        Debug.Log("Game Over");
+        // Debug.Log("Game Over");
         gameOverPanel.SetActive(true);
     }
 

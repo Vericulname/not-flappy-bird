@@ -18,7 +18,7 @@ public class MiddleTrigger : MonoBehaviour
     {
         if (collision.gameObject.layer == playerLayer)
         {
-            Debug.Log("Middle Trigger");
+            // Debug.Log("Middle Trigger");
             gameLogic.AddScore(1);
         }
 

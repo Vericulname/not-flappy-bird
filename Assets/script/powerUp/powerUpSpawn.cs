@@ -6,7 +6,7 @@ public class powerUpSpawn : MonoBehaviour
 
     public GameObject LaserPowerUp;
     public GameObject ShieldPowerUp;
-    private int spawnRate = 1;
+    public int spawnRate;
     void Start()
     {
 
@@ -15,19 +15,20 @@ public class powerUpSpawn : MonoBehaviour
             SpawnPowerUp();
             // Debug.Log("PowerUp Spawned");
         }
+        // Debug.Log("PowerUp spawn rate:" + spawnRate);
     }
 
     void SpawnPowerUp()
     {
-        // if (Random.Range(0, 2) == 0)
-        // {
+        if (Random.Range(0, 2) == 0)
+        {
 
-        Instantiate(LaserPowerUp, gameObject.transform);
-        // }
-        // else
-        // {
-        //     Instantiate(ShieldPowerUp, gameObject.transform);
-        // }
+            Instantiate(LaserPowerUp, gameObject.transform);
+        }
+        else
+        {
+            Instantiate(ShieldPowerUp, gameObject.transform);
+        }
     }
 
 
