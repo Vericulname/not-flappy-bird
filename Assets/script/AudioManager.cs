@@ -4,31 +4,15 @@ using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    // public AudioSource musicSource;
-    // public AudioSource sfxSource;
-    public Button musicToggleBt;
-    public Button sfxToggleBt;
-
-    private bool isMusicOn = true;
-    private bool isSFXOn = true;
-
-
-    public void ToggleMusic()
-    {
-
-        isMusicOn = !isMusicOn;
-        // musicSource.mute = !musicSource.mute;
-        musicToggleBt.GetComponent<Image>().sprite = isMusicOn ? Resources.Load<Sprite>("image/music") : Resources.Load<Sprite>("image/music-mute");
-
-    }
+    public AudioSource MusicSource;
+    public AudioSource JumpSfx;
+    public AudioSource LaserSfx;
+    public AudioSource PowerUpSfx;
+    public AudioSource scoreSfx;
+    public AudioSource GameOverSfx;
 
 
-    public void ToggleSFX()
-    {
-        isSFXOn = !isSFXOn;
-        // sfxSource.mute = !sfxSource.mute;
-        sfxToggleBt.GetComponent<Image>().sprite = isSFXOn ? Resources.Load<Sprite>("image/sfx") : Resources.Load<Sprite>("image/sfx-mute");
-    }
+
 
     private void Awake()
     {
@@ -38,6 +22,40 @@ public class AudioManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void ToggleSfx(bool togglesfx)
+    {
+        JumpSfx.mute = togglesfx;
+        LaserSfx.mute = togglesfx;
+        PowerUpSfx.mute = togglesfx;
+        scoreSfx.mute = togglesfx;
+        GameOverSfx.mute = togglesfx;
+    }
+
+    public void PlayJumpSfx()
+    {
+        JumpSfx.Play();
+    }
+
+    public void PlayLaserSfx()
+    {
+        LaserSfx.Play();
+    }
+
+    public void PlayPowerUpSfx()
+    {
+        PowerUpSfx.Play();
+
+    }
+    public void PlayScoreSfx()
+    {
+        scoreSfx.Play();
+    }
+    public void PlayGameOverSfx()
+    {
+        GameOverSfx.Play();
+
     }
 }
 

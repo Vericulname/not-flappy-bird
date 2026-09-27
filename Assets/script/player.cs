@@ -21,6 +21,7 @@ public class playerScript : MonoBehaviour
 
     public float chargeTime;
 
+    private AudioManager audioManager;
 
 
     private int obstacleLayer;
@@ -29,6 +30,7 @@ public class playerScript : MonoBehaviour
 
         obstacleLayer = LayerMask.NameToLayer("obstacle");
         gameLogic = GameObject.FindGameObjectWithTag("Logic").GetComponent<gameLogic>();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
 
         Jumpaction = InputSystem.actions.FindAction("Jump");
         // Debug.Log(Jumpaction.enabled);
@@ -44,10 +46,12 @@ public class playerScript : MonoBehaviour
         {
             //Debug.Log("jump");
             Rigidbody.AddForceY(strength, ForceMode2D.Force);
+            audioManager.PlayJumpSfx();
         }
         //TODO: can toi uu (dua no sang sript hoac gameobject khac)
         if (isShieldActive)
         {
+
             shieldEffect.SetActive(true);
 
             duration -= Time.deltaTime;
@@ -74,6 +78,7 @@ public class playerScript : MonoBehaviour
                 isLaserActive = false;
 
                 GameObject laser = Instantiate(laserPrefab, transform.position + Vector3.right * 8.5f, new Quaternion(0, 0, 0, 0));
+                audioManager.PlayLaserSfx();
                 chargeTime = 5f;
                 Destroy(laser, 0.2f);
                 Debug.Log("Laser Deactivated");
@@ -94,6 +99,7 @@ public class playerScript : MonoBehaviour
         if (collision.gameObject.layer == obstacleLayer && isShieldActive == false)
         {
             gameLogic.GameOver();
+
             isGameOver = true;
         }
     }

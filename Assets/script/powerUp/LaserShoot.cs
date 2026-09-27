@@ -4,6 +4,7 @@ public class LaserShoot : MonoBehaviour
 {
 
     private gameLogic gameLogic;
+    private AudioManager audioManager;
     void Start()
     {
         gameLogic = GameObject.FindGameObjectWithTag("Logic").GetComponent<gameLogic>();
