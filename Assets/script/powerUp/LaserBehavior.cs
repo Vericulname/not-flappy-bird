@@ -1,23 +1,11 @@
 using UnityEngine;
 
-public class LaserBehavior : MonoBehaviour
+public class LaserBehavior : Item
 {
-    public float chargeTime = 5f;
-    private GameObject player;
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
+    public float chargeTime;
 
-    // Update is called once per frame
-
-    void OnTriggerEnter2D(Collider2D other)
+    protected override void OnCollect(GameObject player)
     {
-        if (other.CompareTag("Player"))
-        {
-            player.GetComponent<playerScript>().isLaserActive = true;
-            Destroy(gameObject);
-            // Debug.Log("Laser Activated");
-        }
+        player.GetComponent<playerScript>().isLaserActive = true;
     }
 }

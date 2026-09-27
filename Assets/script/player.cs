@@ -16,10 +16,10 @@ public class playerScript : MonoBehaviour
 
     public bool isShieldActive = false;
 
-    public float duration = 4f;
+    public float duration;
     public bool isLaserActive = false;
 
-    public float chargeTime = 5f;
+    public float chargeTime;
 
 
 
