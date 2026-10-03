@@ -9,6 +9,7 @@ public class playerScript : MonoBehaviour
     public GameObject shieldEffect;
     public GameObject laserPrefab;
     public Rigidbody2D Rigidbody;
+    public Animator BirdAnimator;
     public float strength;
     InputAction Jumpaction;
     private gameLogic gameLogic;
@@ -16,7 +17,7 @@ public class playerScript : MonoBehaviour
 
     public bool isShieldActive = false;
 
-    public float duration;
+    public float ShieldDuration;
     public bool isLaserActive = false;
 
     public float chargeTime;
@@ -47,6 +48,7 @@ public class playerScript : MonoBehaviour
             //Debug.Log("jump");
             Rigidbody.AddForceY(strength, ForceMode2D.Force);
             audioManager.PlayJumpSfx();
+            BirdAnimator.SetTrigger("flap");
         }
         //TODO: can toi uu (dua no sang sript hoac gameobject khac)
         if (isShieldActive)
@@ -54,11 +56,16 @@ public class playerScript : MonoBehaviour
 
             shieldEffect.SetActive(true);
 
-            duration -= Time.deltaTime;
+            ShieldDuration -= Time.deltaTime;
 
             gameObject.GetComponent<Collider2D>().enabled = false;
 
-            if (duration < 0)
+            if (ShieldDuration <= 3)
+            {
+                shieldEffect.GetComponent<Animator>().SetTrigger("blink");
+            }
+
+            if (ShieldDuration < 0)
             {
 
                 gameObject.GetComponent<Collider2D>().enabled = true;
@@ -66,7 +73,7 @@ public class playerScript : MonoBehaviour
                 // Destroy(gameObject);
                 Debug.Log("Shield Deactivated");
                 isShieldActive = false;
-                duration = 5f;
+                ShieldDuration = 5f;
             }
         }
 
